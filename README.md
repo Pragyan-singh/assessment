@@ -21,34 +21,10 @@ mapping(address=>uint) public balance;
 
 Then mapping address of account to the balance.
 
-```
-constructor() {
-        owner=msg.sender;
-    }
-modifier onlyOwner {
-    	require (owner==msg.sender, "only owner can access");
-    	_;
-    }
-function mint(address _adrs, uint _value) public {
-        totalsupply += _value;
-        balance[_adrs]+=_value;
-    }
-```
+
 constructor will help in assigning the value of owner address to owner.
 using modifier can allow access to only owner to mint token.
 Declaring and defining mint function with modifier to add values to the balance in account.
-
-```
-function burn(address _adrs, uint _value) public returns(bool) {
-        if(balance[_adrs]>=_value){
-            totalsupply -= _value;
-            balance[_adrs] -= _value;
-            return false;
-        }
-        return true;
-        
-    }
-```
 
 Declaring and defining burn function to deduct values from balance.
 using if statement to check the condition that balance should not be less than deducting value.
